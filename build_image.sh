@@ -8,7 +8,7 @@ ARCH=$(uname -m)
 
 # Build libcstor
 cd ../libcstor
-make clean
+#make clean
 sh autogen.sh
 ./configure --with-zfs-headers=$PWD/../cstor/include --with-spl-headers=$PWD/../cstor/lib/libspl/include
 make -j4
@@ -17,10 +17,10 @@ sudo ldconfig
 
 # Build cstor
 cd ../cstor
-make clean
+#make clean
 sh autogen.sh
 ./configure --enable-uzfs=yes --with-config=user --with-jemalloc --with-libcstor=$PWD/../libcstor/include
-make clean
+#make clean
 make
 
 BUILD_DATE=$(date +'%Y%m%d%H%M%S')
